@@ -22,7 +22,7 @@ int main()
 {
     Notas notas;
     notas.generarListado();
-    cout << "El Promedio General del Grupo es: " << notas.promGenGrupo() << endl;
+    cout << "El Promedio General del Grupo es: " << notas.promGenGrupo() << endl << endl;;
     notas.mejorDef();
     notas.mejorNotaReg();
     notas.promNotas();

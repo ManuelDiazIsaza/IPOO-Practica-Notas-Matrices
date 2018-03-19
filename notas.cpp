@@ -55,6 +55,7 @@ void Notas::generarListado(){
   int filas = sizeof notas / sizeof *notas;
   int columnas = sizeof notas[0] / sizeof *notas[0];
   int longitud=0;
+  cout << endl;
   cout << "Estudiantes" << setw(17) << "N1" << setw(7) << "N2" << setw(7) << "N3" << setw(7) << "N4" << setw(7) << "PROM"<< endl;
   cout << "=====================================================================" << endl;
   for (int i = 0 ; i < filas; i++){
@@ -65,6 +66,7 @@ void Notas::generarListado(){
     }
     cout << endl;
   }
+  cout << endl;
 }
 
 double Notas::promGenGrupo()
@@ -136,6 +138,7 @@ void Notas::mejorDef()
         {
             cout << " - " << mejoresEst[i] << endl;
         }
+    cout << endl;
 
 
 }
@@ -177,6 +180,7 @@ void Notas::mejorNotaReg()
     {
         cout << mejoresEst[i] << " en la N"<<enQueEv[i]+1 << endl;
     }
+    cout << endl;
 }
 
 void Notas::promNotas()
@@ -224,6 +228,7 @@ void Notas::evalMejorProm()
         }
     }
     cout << endl << "La Evaluacion con mejor promedio es N" << posicionMejorNota+1 << " con una nota promedio de " << evalMejorProm;
+    cout << endl;
 }
 
 void Notas::evalPeorProm()
@@ -251,6 +256,7 @@ void Notas::evalPeorProm()
         }
     }
     cout << endl << "La Evaluacion con peor promedio es N" << posicionPeorNota+1 << " con una nota promedio de " << evalPeorProm;
+    cout << endl;
 }
 
 void Notas::ciertaEva(int numEva)
@@ -271,6 +277,7 @@ void Notas::ciertaEva(int numEva)
         }
         cout << endl;
     }
+    cout << endl;
 }
 
 void Notas::ciertoEst(string nombre)
@@ -295,4 +302,5 @@ void Notas::ciertoEst(string nombre)
             }
         }
     }
+    cout << endl;
 }
