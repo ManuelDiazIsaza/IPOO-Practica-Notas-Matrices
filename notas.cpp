@@ -18,7 +18,7 @@ using namespace std;
 
 Notas::Notas()
 {
-  double notas2[5][4] = {{4.2,5,4.2,5},{2.7,4.6,4.6,5},{2.4,3.6,3.8,4.6},{4.4,2.2,5,4.4},{2.7,4.6,5,4.7}};
+  double notas2[5][4] = {{4.2,4.4,4.2,5},{2.7,4.6,4.6,4.7},{2.4,3.6,3.8,4.6},{4.4,2.2,4.8,4.4},{2.7,4.6,5,4.7}};
   srand(time(NULL))  ;
   int filas = sizeof notas / sizeof *notas;
   int columnas = sizeof notas[0] / sizeof *notas[0];
@@ -175,5 +175,123 @@ void Notas::mejorNotaReg()
     for(int i=0;i<posicion;i++)
     {
         cout << mejoresEst[i] << " en la N"<<enQueEv[i]+1 << endl;
+    }
+}
+
+void Notas::promNotas()
+{
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = (sizeof notas[0] / sizeof *notas[0]) - 1;
+    double promNotas[columnas];
+    for (int i = 0 ; i < columnas; i++)
+    {
+        double acumEst=0;
+        for (int j = 0; j < filas; j++)
+        {
+            acumEst= acumEst + notas[j][i];
+        }
+        promNotas[i] = acumEst/filas;
+    }
+    for(int i=0;i<columnas;i++)
+    {
+        cout << "El Promedio de la N"<<i+1<<" es: " << promNotas[i] << endl;
+    }
+}
+
+void Notas::evalMejorProm()
+{
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = (sizeof notas[0] / sizeof *notas[0]) - 1;
+    double promNotas[columnas];
+    for (int i = 0 ; i < columnas; i++)
+    {
+        double acumEst=0;
+        for (int j = 0; j < filas; j++)
+        {
+            acumEst= acumEst + notas[j][i];
+        }
+        promNotas[i] = acumEst/filas;
+    }
+    double evalMejorProm=0;
+    int posicionMejorNota=0;
+    for(int i=0;i<columnas;i++)
+    {
+        if(evalMejorProm<promNotas[i])
+        {
+            evalMejorProm = promNotas[i];
+            posicionMejorNota = i;
+        }
+    }
+    cout << endl << "La Evaluacion con mejor promedio es : N" << posicionMejorNota+1 << " con una nota promedio de: " << evalMejorProm;
+}
+
+void Notas::evalPeorProm()
+{
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = (sizeof notas[0] / sizeof *notas[0]) - 1;
+    double promNotas[columnas];
+    for (int i = 0 ; i < columnas; i++)
+    {
+        double acumEst=0;
+        for (int j = 0; j < filas; j++)
+        {
+            acumEst= acumEst + notas[j][i];
+        }
+        promNotas[i] = acumEst/filas;
+    }
+    double evalPeorProm=5;
+    int posicionPeorNota=0;
+    for(int i=0;i<columnas;i++)
+    {
+        if(evalPeorProm>promNotas[i])
+        {
+            evalPeorProm = promNotas[i];
+            posicionPeorNota = i;
+        }
+    }
+    cout << endl << "La Evaluacion con peor promedio es : N" << posicionPeorNota+1 << " con una nota promedio de: " << evalPeorProm;
+}
+
+void Notas::ciertaEva(int numEva)
+{
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = sizeof notas[0] / sizeof *notas[0];
+    int longitud=0;
+    cout << endl << "Estudiantes" << setw(16) << "N" << numEva << endl;
+    cout << "=====================================================================" << endl;
+    for (int i = 0 ; i < filas; i++){
+        longitud = estudiantes[i].length();
+        cout << estudiantes[i].append(20-longitud,'.') << " : " <<setw(5) ;
+        for (int j = 0; j < columnas; j++) {
+            if (numEva == j + 1)
+            {
+            cout << notas[i][j] << setw(7);
+            }
+        }
+        cout << endl;
+    }
+}
+
+void Notas::ciertoEst(string nombre)
+{
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = sizeof notas[0] / sizeof *notas[0];
+    int longitud=0;
+    cout << "Estudiantes" << setw(17) << "N1" << setw(7) << "N2" << setw(7) << "N3" << setw(7) << "N4" << setw(7) << "PROM"<< endl;
+    cout << "=====================================================================" << endl;
+    for (int i = 0 ; i < filas; i++)
+    {
+        if(nombre == estudiantes[i])
+        {
+            longitud = estudiantes[i].length();
+            cout << estudiantes[i].append(20-longitud,'.') << " : " <<setw(5+(20-longitud)) ;
+        }
+
+        for (int j = 0; j < columnas; j++){
+            if(nombre == estudiantes[i])
+            {
+                cout << notas[i][j] << setw(7);
+            }
+        }
     }
 }

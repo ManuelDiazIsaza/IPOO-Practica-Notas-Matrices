@@ -22,7 +22,7 @@ using namespace std;
 class Notas{
   private:
     double notas[5][5];
-    string estudiantes[5];
+
     double generarNota();
     void agregarEstudiantes();
 
@@ -34,6 +34,12 @@ class Notas{
     void promEstudiante();
     void mejorDef();
     void mejorNotaReg();
+    void promNotas();
+    void evalMejorProm();
+    void evalPeorProm();
+    void ciertaEva(int numEva);
+    void ciertoEst(string nombre);
+    string estudiantes[5];
 };
 
 #endif
