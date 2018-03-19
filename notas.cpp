@@ -133,7 +133,7 @@ void Notas::mejorDef()
              }
          }
         cout << "La mejor nota definitiva es: " << mejorNota << endl;
-        cout << "El/Los Estudiante(s) con la mejor nota definitiva son:" << endl;
+        cout << "El/Los Estudiante(s) con la mejor nota definitiva es/son:" << endl;
         for(int i=0;i<posicion;i++)
         {
             cout << " - " << mejoresEst[i] << endl;
@@ -175,7 +175,7 @@ void Notas::mejorNotaReg()
         }
     }
     cout << "La mejor nota registrada es: " << mejorNota << endl;
-    cout << "El/Los Estudiante(s) con la mejor nota registrada son:" << endl;
+    cout << "El/Los Estudiante(s) con la mejor nota registrada es/son:" << endl;
     for(int i=0;i<posicion;i++)
     {
         cout << mejoresEst[i] << " en la N"<<enQueEv[i]+1 << endl;
