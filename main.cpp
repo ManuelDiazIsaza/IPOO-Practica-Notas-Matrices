@@ -24,5 +24,7 @@ int main()
     notas.generarListado();
     cout << "El Promedio General del Grupo es: " << notas.promGenGrupo() << endl;
   //  cout << "EL Promedio del estudiate es:" << notas.promEstudiante() << endl;
+  //  notas.mejorDef();
+    notas.mejorNotaReg();
     return 0;
 }

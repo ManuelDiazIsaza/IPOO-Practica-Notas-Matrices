@@ -22,7 +22,6 @@ using namespace std;
 class Notas{
   private:
     double notas[5][5];
-    double promedios[5];
     string estudiantes[5];
     double generarNota();
     void agregarEstudiantes();
@@ -33,6 +32,8 @@ class Notas{
     void generarListado();
     double promGenGrupo();
     void promEstudiante();
+    void mejorDef();
+    void mejorNotaReg();
 };
 
 #endif

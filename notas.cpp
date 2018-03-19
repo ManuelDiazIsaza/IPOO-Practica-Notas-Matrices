@@ -18,7 +18,7 @@ using namespace std;
 
 Notas::Notas()
 {
-  double notas2[5][4] = {{4.2,2.3,4.2,5},{3.5,4.4,3.3,2.7},{2.4,3.6,3.8,4.6},{4.4,2.2,2.7,4.4},{2.7,4.6,4.6,4.7}};
+  double notas2[5][4] = {{4.2,5,4.2,5},{2.7,4.6,4.6,5},{2.4,3.6,3.8,4.6},{4.4,2.2,5,4.4},{2.7,4.6,5,4.7}};
   srand(time(NULL))  ;
   int filas = sizeof notas / sizeof *notas;
   int columnas = sizeof notas[0] / sizeof *notas[0];
@@ -97,5 +97,83 @@ void Notas::promEstudiante()
         acumEst= acumEst + notas[i][j];
         }
     this -> notas[i][4] = acumEst/columnas;
+    }
+}
+
+void Notas::mejorDef()
+{
+        double mejorNota=0;
+        int posicion=0;
+        int filas = sizeof notas / sizeof *notas;
+        int columnas = sizeof notas[0] / sizeof *notas[0];
+        string mejoresEst[columnas];
+        for (int i = 0 ; i < filas; i++)
+        {
+            for (int j = 0; j < columnas; j++)
+            {
+                if(j==4 && notas[i][j] > mejorNota)
+                {
+                    mejorNota = notas[i][j];
+                }
+
+            }
+        }
+        for (int i = 0 ; i < filas; i++)
+        {
+            for (int j = 0; j < columnas; j++)
+             {
+                if(j==4 && notas[i][j] == mejorNota)
+                {
+                mejoresEst[posicion] = this -> estudiantes[i];
+                posicion++;
+                }
+             }
+         }
+        cout << "La mejor nota definitiva es: " << mejorNota << endl;
+        cout << "El/Los Estudiante(s) con la mejor nota definitiva son:" << endl;
+        for(int i=0;i<posicion;i++)
+        {
+            cout << mejoresEst[i] << " - ";
+        }
+
+
+}
+
+void Notas::mejorNotaReg()
+{
+    double mejorNota=0;
+    int posicion=0;
+    int filas = sizeof notas / sizeof *notas;
+    int columnas = sizeof notas[0] / sizeof *notas[0];
+    string mejoresEst[columnas];
+    int enQueEv[columnas];
+    for (int i = 0 ; i < filas; i++)
+    {
+        for (int j = 0; j < columnas; j++)
+        {
+            if(notas[i][j] > mejorNota)
+            {
+                mejorNota = notas[i][j];
+            }
+
+        }
+    }
+    for (int i = 0 ; i < filas; i++)
+    {
+        for (int j = 0; j < columnas; j++)
+        {
+            if(notas[i][j] == mejorNota)
+            {
+                mejoresEst[posicion] = this -> estudiantes[i];
+                enQueEv[posicion] = j;
+                posicion++;
+            }
+        }
+    }
+    cout << "La mejor nota registrada es: " << mejorNota << endl;
+    cout << "El/Los Estudiante(s) con la mejor nota registrada son:" << endl;
+    for(int i=0;i<posicion;i++)
+    {
+        cout << mejoresEst[i] << " en la N"<<enQueEv[i]+1 << endl;
     }
 }
