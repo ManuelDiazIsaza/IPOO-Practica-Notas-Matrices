@@ -47,6 +47,7 @@ void Notas::agregarEstudiantes(){
   int filas = sizeof this->estudiantes / sizeof *this->estudiantes;
   for(int i = 0; i< filas; i++){
     this->estudiantes[i] = estudiantes[i];
+    this->estudiantes2[i] = estudiantes[i];
   }
 }
 
@@ -124,7 +125,7 @@ void Notas::mejorDef()
              {
                 if(j==4 && notas[i][j] == mejorNota)
                 {
-                mejoresEst[posicion] = this -> estudiantes[i];
+                mejoresEst[posicion] = this -> estudiantes2[i];
                 posicion++;
                 }
              }
@@ -133,7 +134,7 @@ void Notas::mejorDef()
         cout << "El/Los Estudiante(s) con la mejor nota definitiva son:" << endl;
         for(int i=0;i<posicion;i++)
         {
-            cout << mejoresEst[i] << " - ";
+            cout << " - " << mejoresEst[i] << endl;
         }
 
 
@@ -164,7 +165,7 @@ void Notas::mejorNotaReg()
         {
             if(notas[i][j] == mejorNota)
             {
-                mejoresEst[posicion] = this -> estudiantes[i];
+                mejoresEst[posicion] = this -> estudiantes2[i];
                 enQueEv[posicion] = j;
                 posicion++;
             }
@@ -222,7 +223,7 @@ void Notas::evalMejorProm()
             posicionMejorNota = i;
         }
     }
-    cout << endl << "La Evaluacion con mejor promedio es : N" << posicionMejorNota+1 << " con una nota promedio de: " << evalMejorProm;
+    cout << endl << "La Evaluacion con mejor promedio es N" << posicionMejorNota+1 << " con una nota promedio de " << evalMejorProm;
 }
 
 void Notas::evalPeorProm()
@@ -249,7 +250,7 @@ void Notas::evalPeorProm()
             posicionPeorNota = i;
         }
     }
-    cout << endl << "La Evaluacion con peor promedio es : N" << posicionPeorNota+1 << " con una nota promedio de: " << evalPeorProm;
+    cout << endl << "La Evaluacion con peor promedio es N" << posicionPeorNota+1 << " con una nota promedio de " << evalPeorProm;
 }
 
 void Notas::ciertaEva(int numEva)
@@ -281,14 +282,14 @@ void Notas::ciertoEst(string nombre)
     cout << "=====================================================================" << endl;
     for (int i = 0 ; i < filas; i++)
     {
-        if(nombre == estudiantes[i])
+        if(nombre == estudiantes2[i])
         {
             longitud = estudiantes[i].length();
             cout << estudiantes[i].append(20-longitud,'.') << " : " <<setw(5+(20-longitud)) ;
         }
 
         for (int j = 0; j < columnas; j++){
-            if(nombre == estudiantes[i])
+            if(nombre == estudiantes2[i])
             {
                 cout << notas[i][j] << setw(7);
             }

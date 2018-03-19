@@ -25,6 +25,8 @@ class Notas{
 
     double generarNota();
     void agregarEstudiantes();
+    string estudiantes[5];
+    string estudiantes2[5];
 
   public:
     Notas();
@@ -39,7 +41,7 @@ class Notas{
     void evalPeorProm();
     void ciertaEva(int numEva);
     void ciertoEst(string nombre);
-    string estudiantes[5];
+
 };
 
 #endif
